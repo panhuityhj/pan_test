@@ -1,0 +1,28 @@
+http://10.96.163.11:7777/redmine/issues/43455
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[1000];
+    int len = 0;
+    int res = 0;
+    while(scanf("%s",str) !=EOF)
+    {
+        if(str[0]=='0' && str[1] =='x')
+        {
+            res = 0; 
+            len = strlen(str);
+            for(int i =2;i<len;i++)
+            {
+                if(str[i] >= 'A')
+                    res = ((str[i] - 'A') + 10)+ res*16;
+                else
+                    res = (str[i] - '0')+ res*16;
+                //printf("is %d,%d \n",(str[i] - '0'),res);
+            }
+            printf("%d",res);
+        }
+    }
+}
+svn://fhbbssvn2.fiberhome.com:3700/project/unipon/UniPON_SRC/platform2.0/Platform/App/sip/hgcsip_zhongshi/branch/5116_province

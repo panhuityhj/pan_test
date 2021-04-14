@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+void delbak(char *pst,char *ps1)
+{
+    if(pst == NULL || ps1 == NULL)
+        return;
+    while(*pst != '\0')
+    {
+        if((*pst == '\n') || (*pst == '\t') || (*pst == ' '))
+        {
+            pst++;
+            continue;
+        }
+        *ps1 = *pst;
+         ps1++;
+         pst++;
+    }   
+    *ps1 = '\0';
+}
+int main()
+{
+    char str[1024] = {0};
+    char src[1024] = {0};
+    char str2[1024] = {0};
+    int i = 0;
+    int n = 0;
+    int j = 0;
+    int len = 0;
+    gets(str);
+    scanf("%s",str2);
+    delbak(str,src);
+    len = strlen(str2);
+    while((i = strstr(src + j,str2)) != -1)
+    {
+        n++;
+        j = j+i+1;
+        if(j >= len)
+            break;
+    }
+    printf("%d",n);  
+}
